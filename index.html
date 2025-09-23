@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>2600 Milford Ln · Gated Alpharetta Townhome · Walk to Avalon & Downtown</title>
+  <title>Private Broker Invitation — 2600 Milford Ln (Gated Downtown Alpharetta)</title>
   <meta name="description" content="Rare Lafayette floor plan in a quiet, gated community with direct trail access to Downtown Alpharetta & the Alpha Loop. 3 bed • 3.5 bath • 2,400 SF • finished terrace level • two brand‑new AC units • pool, tennis, fitness, nature trail. HOA covers exterior."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,13 +76,20 @@
     linear-gradient(180deg,rgba(2,6,23,.55),rgba(2,6,23,.40)),
     url('https://raw.githubusercontent.com/vandango33/tmp-img/main/front_exterior.jpg') center/cover no-repeat;}
   .hero-inner{padding:96px 0 40px}
+  .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:flex-start}
   .eyebrow{letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;font-size:.82rem}
-  .title{font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(30px,5vw,56px);line-height:1.15;margin:.35rem 0 1rem}
+  .title{font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(30px,5vw,44px);line-height:1.15;margin:.35rem 0 1rem}
   .sub{color:var(--muted);max-width:58ch}
+  .micro{margin-top:8px;color:var(--muted);font-style:italic}
 
   .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
   .chip{background:var(--chip-bg);border:1px solid var(--chip-border);color:var(--chip-text);padding:8px 12px;border-radius:999px;font-weight:600}
   .chip.alt{background:rgba(0,0,0,.04);border-color:var(--hair);color:var(--ink)}
+
+  .quick-specs{padding:16px;border-radius:var(--radius);background:var(--card);border:1px solid var(--card-border);box-shadow:var(--shadow)}
+  .quick-specs ul{list-style:none;margin:0;padding:0}
+  .quick-specs li{padding:8px 0;border-bottom:1px dashed var(--hair)}
+  .quick-specs li:last-child{border-bottom:0}
 
   /* Sticky mobile CTA */
   .sticky-cta{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:40;background:linear-gradient(90deg,var(--cta-1),var(--cta-2));color:var(--cta-ink);border-radius:999px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;padding:12px 18px}
@@ -135,7 +142,7 @@
   /* Calculator */
   .calc{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .field{display:flex;flex-direction:column;gap:6px}
-  .field input{background:var(--input-bg);border:1px solid var(--button-border);color:var(--ink);padding:12px 12px;border-radius:10px}
+  .field input, .field select, .field textarea{background:var(--input-bg);border:1px solid var(--button-border);color:var(--ink);padding:12px 12px;border-radius:10px}
   .muted{color:var(--muted)}
   .result{font-size:1.8rem;font-weight:800}
 
@@ -151,7 +158,22 @@
   /* Theme switcher inline style */
   #themeSelect{appearance:none;background:var(--button-bg);border:1px solid var(--button-border);border-radius:999px;padding:8px 12px;font-weight:600;color:var(--ink)}
 
-  /* Responsive */
+  /* ===== Broker Gate Overlay ===== */
+  .gate-overlay{position:fixed;inset:0;z-index:100;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.65)),url('https://raw.githubusercontent.com/vandango33/tmp-img/main/front_exterior.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;padding:24px}
+  .gate-card{max-width:820px;width:100%;background:var(--card);border:1px solid var(--card-border);border-radius:22px;box-shadow:var(--shadow);padding:28px}
+  .gate-card h1{font-family:"Playfair Display",serif;margin:0 0 10px}
+  .gate-check{display:flex;gap:12px;align-items:flex-start;margin:12px 0;color:var(--ink)}
+  .gate-check input{margin-top:3px}
+  .gate-actions{margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .btn{display:inline-block;background:linear-gradient(90deg,var(--cta-1),var(--cta-2));color:var(--cta-ink);border:0;border-radius:999px;padding:12px 18px;font-weight:800;cursor:pointer}
+  .btn[disabled]{opacity:.5;cursor:not-allowed}
+  .btn-outline{background:transparent;border:1px solid var(--button-border);color:var(--ink)}
+
+  /* ===== New Broker Sections ===== */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .bullets{margin:0;padding-left:18px}
+  .bullets li{margin:6px 0}
+
   @media (max-width:1024px){
     .highlights{grid-template-columns:1fr 1fr}
     .amen{grid-template-columns:1fr 1fr}
@@ -159,6 +181,8 @@
     .calc{grid-template-columns:1fr}
     .cta-panel{grid-template-columns:1fr}
     .details .col{grid-column:span 12}
+    .two-col{grid-template-columns:1fr}
+    .hero-grid{grid-template-columns:1fr}
   }
   @media (max-width:680px){
     .facts{gap:8px}
@@ -174,43 +198,71 @@
         <strong>2600 Milford Ln · Alpharetta</strong>
       </div>
       <nav style="display:flex;gap:16px;align-items:center">
-        <a href="#gallery">Photos</a>
-        <a href="#details">Details</a>
-        <a href="#amenities">Amenities</a>
-        <a href="#location">Location</a>
-        $1<select id="themeSelect" aria-label="Color theme">
-  <option value="theme-light">Light</option>
-  <option value="theme-warm">Warm</option>
-  <option value="theme-slate">Slate</option>
-</select>
-<a href="#contact" class="cta">Text/Call (404) 849‑8677</a>
-      </nav>
+  <a href="#gallery">Photos</a>
+  <a href="#opportunity">Opportunity</a>
+  <a href="#assets">Asset Kit</a>
+  <a href="#scheduler">Scheduler</a>
+  <a href="#register">Register Buyer</a>
+  <a href="#offer">Offer Steps</a>
+  <select id="themeSelect" aria-label="Color theme">
+    <option value="theme-light">Light</option>
+    <option value="theme-warm">Warm</option>
+    <option value="theme-slate">Slate</option>
+  </select>
+  <a href="#register" class="cta">Enter / Register</a>
+</nav>
     </div>
   </header>
+<!-- Broker Gate -->
+<div id="gate" class="gate-overlay" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <div class="gate-card">
+    <h1 id="gateTitle">Private Broker Invitation — 2600 Milford Ln (Gated Downtown Alpharetta)</h1>
+    <p class="muted">Please review and accept to access the private offering.</p>
+    <label class="gate-check"><input type="checkbox" id="g1"> <span>I will not publicly market or post to MLS/portals/social without Seller’s written consent.</span></label>
+    <label class="gate-check"><input type="checkbox" id="g2"> <span>I will pre-register buyers before showings (name + contact + pre-approval/POF).</span></label>
+    <label class="gate-check"><input type="checkbox" id="g3"> <span>I understand this is a non-exclusive/open opportunity.</span></label>
+    <div class="gate-actions">
+      <button id="enterBtn" class="btn" disabled>Enter Private Offering</button>
+      <button class="btn btn-outline" onclick="location.hash='#register'">Register Buyer</button>
+    </div>
+  </div>
+</div>
 
   <section class="hero">
-    <div class="hero-media" aria-hidden="true"></div>
-    <div class="wrap hero-inner">
-      <div class="eyebrow">Private Showing · Gated Community</div>
-      <h1 class="title">Sophisticated Townhome steps from Downtown Alpharetta & Avalon</h1>
-      <p class="sub">Rare Lafayette floor plan with sunlit keeping room, chef’s kitchen with stainless appliances & wine cooler, vaulted primary suite with spa bath & custom closet, finished terrace level, and two brand‑new AC units. Direct private gate to the Alpha Loop & nature trail.</p>
-      <div class="facts">
-        <span class="chip">3 Bed</span>
-        <span class="chip">3.5 Bath</span>
-        <span class="chip">2,400 SF</span>
-        <span class="chip alt">Built 2002</span>
-        <span class="chip alt">Finished Terrace Level</span>
-        <span class="chip alt">Attached Garage (2 spaces)</span>
+  <div class="hero-media" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Broker Access · Off‑MLS</div>
+        <h1 class="title">Private Broker Invitation — 2600 Milford Ln (Gated Downtown Alpharetta)</h1>
+        <p class="sub">Direct private gate to the Alpha Loop with an easy walk to Downtown Alpharetta & Avalon. Rare Lafayette floor plan with finished terrace level and two brand‑new AC units. HOA covers exterior (paint, brick, roof, landscaping, reserves).</p>
+        <p class="micro">Off‑MLS, private offering for registered buyers through participating brokers.</p>
+        <div class="facts">
+          <span class="chip">3BR</span>
+          <span class="chip">3.5BA</span>
+          <span class="chip">~2,400 SF</span>
+          <span class="chip alt">Finished terrace level</span>
+          <span class="chip alt">2‑car garage</span>
+        </div>
       </div>
+      <aside class="quick-specs">
+        <ul>
+          <li><strong>Specs:</strong> 3BR | 3.5BA | ~2,400 SF | Finished terrace level | 2‑car garage</li>
+          <li><strong>Alpha Loop Gate:</strong> Walk to Downtown Alpharetta & Avalon</li>
+          <li><strong>Major Systems:</strong> Two brand‑new AC units</li>
+          <li><strong>Community:</strong> Pool • Tennis • Fitness • Nature Trail</li>
+          <li><strong>HOA:</strong> $665/mo (exterior paint, brick, roof, landscape, reserves)</li>
+        </ul>
+      </aside>
     </div>
-  </section>
-
-  <div class="sticky-cta" aria-label="Quick contact">
-    <span>Schedule a private tour →</span>
-    <a href="sms:+14048498677?&body=Hi%20—%20I%27d%20like%20to%20tour%202600%20Milford%20Ln" title="Text now">Text</a>
-    <span>·</span>
-    <a href="tel:+14048498677" title="Call now">Call</a>
   </div>
+</section>
+
+  <div class="sticky-cta" aria-label="Quick broker actions">
+  <a href="#register" title="Register Buyer">Register Buyer</a>
+  <span>·</span>
+  <a href="#scheduler" title="Request Showing">Request Showing</a>
+</div>
 
   <!-- Gallery -->
   <section id="gallery" class="wrap" style="padding-top:48px">
@@ -382,14 +434,14 @@
     <div class="card" style="padding:18px">
       <div class="calc">
         <div>
-          <div class="field"><label>Target Price ($)</label><input id="price" type="number" inputmode="decimal" value="749000"></div>
+          <div class="field"><label>Target Price ($)</label><input id="price" type="number" inputmode="decimal" value="769000"></div>
           <div class="field"><label>Down Payment (%)</label><input id="down" type="number" inputmode="decimal" value="20"></div>
-          <div class="field"><label>Interest Rate (APR %)</label><input id="rate" type="number" inputmode="decimal" value="6.75"></div>
+          <div class="field"><label>Interest Rate (APR %)</label><input id="rate" type="number" inputmode="decimal" value="5.7"></div>
           <div class="field"><label>Term (years)</label><input id="term" type="number" inputmode="decimal" value="30"></div>
         </div>
         <div>
-          <div class="field"><label>Property Tax (annual $)</label><input id="tax" type="number" inputmode="decimal" value="6000"></div>
-          <div class="field"><label>Homeowners Insurance (monthly $)</label><input id="ins" type="number" inputmode="decimal" value="110"></div>
+          <div class="field"><label>Property Tax (annual $)</label><input id="tax" type="number" inputmode="decimal" value="4000"></div>
+          <div class="field"><label>Homeowners Insurance (monthly $)</label><input id="ins" type="number" inputmode="decimal" value="60"></div>
           <div class="field"><label>HOA (monthly $)</label><input id="hoa" type="number" inputmode="decimal" value="665"></div>
           <div class="field"><label class="muted">Investor Rent Estimate (for context)</label><input disabled value="$4,929 / mo"></div>
         </div>
@@ -410,7 +462,116 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="wrap">
+  <!-- Broker: Your Opportunity -->
+<section id="opportunity" class="wrap">
+  <div class="section-head">
+    <h2>Your Opportunity (Non‑Exclusive / Open)</h2>
+    <div class="kicker">Fast facts brokers can share privately</div>
+  </div>
+  <div class="card" style="padding:18px">
+    <div class="two-col">
+      <ul class="bullets">
+        <li><strong>Compensation:</strong> 3.0% to procuring‑cause broker at closing.</li>
+        <li><strong>Term:</strong> 30 days (renewable month‑to‑month).</li>
+        <li><strong>Scope:</strong> Private/direct‑to‑buyer outreach only (no public ads or MLS).</li>
+        <li><strong>Buyer Registration:</strong> Required before first showing (simple form below).</li>
+        <li><strong>Showings:</strong> By appointment; broker‑only preview windows available.</li>
+        <li><strong>Target price guidance:</strong> $745k–$759k (strong terms considered).</li>
+      </ul>
+      <div>
+        <p style="margin-top:0">Use the actions below to move quickly:</p>
+        <p style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="callout" href="#register">Register Buyer</a>
+          <a class="print" href="#scheduler">Request Showing Window</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Broker: Asset Kit (behind gate) -->
+<section id="assets" class="wrap">
+  <div class="section-head"><h2>Broker Asset Kit</h2><div class="kicker">Share privately with registered buyers only</div></div>
+  <div class="grid">
+    <a class="card" style="padding:18px;display:block" href="#" target="_blank" rel="noopener"><h3>Photo Set (Broker‑Only)</h3><p class="muted">Link to private Drive/Dropbox</p></a>
+    <a class="card" style="padding:18px;display:block" href="#" target="_blank" rel="noopener"><h3>Walkthrough Video (2–3 min)</h3><p class="muted">Unlisted link</p></a>
+    <a class="card" style="padding:18px;display:block" href="#" target="_blank" rel="noopener"><h3>Reel (60–90s)</h3><p class="muted">Short social‑style clip (private)</p></a>
+    <a class="card" style="padding:18px;display:block" href="#" target="_blank" rel="noopener"><h3>Floor Plan (PDF)</h3><p class="muted">Download</p></a>
+    <a class="card" style="padding:18px;display:block" href="#" target="_blank" rel="noopener"><h3>HOA Snapshot (PDF)</h3><p class="muted">Fees, coverage & rules</p></a>
+  </div>
+  <p class="muted" style="margin-top:10px">Tip: host assets in a private folder with filenames mapped to rooms; watermark assets for broker‑only use.</p>
+</section>
+
+<!-- Broker: Scheduler (requires Registration ID) -->
+<section id="scheduler" class="wrap">
+  <div class="section-head"><h2>Showing Scheduler</h2><div class="kicker">Enter a Registration ID to unlock scheduling</div></div>
+  <div class="card" style="padding:18px">
+    <div class="two-col">
+      <div>
+        <div class="field"><label>Registration ID</label><input id="schedId" placeholder="e.g., RG-ABC123"/></div>
+        <div style="margin-top:12px;display:flex;gap:10px;align-items:center"><button class="callout" onclick="checkSched()">Unlock Scheduler</button><span id="schedMsg" class="muted"></span></div>
+        <p class="muted" style="margin-top:12px">Broker‑only preview windows (example): Sat/Sun 12–2. Confirmed slots will be emailed after verification.</p>
+      </div>
+      <div id="schedWrap" class="card" style="padding:0;display:none">
+        <!-- Replace this Calendly link with your actual URL -->
+        <iframe id="calFrame" title="Showing Scheduler" width="100%" height="520" style="border:0" loading="lazy" allowfullscreen src="https://calendly.com/your-calendly-username/private-showing"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Broker: Buyer Registration Form -->
+<section id="register" class="wrap">
+  <div class="section-head"><h2>Buyer Registration</h2><div class="kicker">Required before first showing</div></div>
+  <form id="regForm" class="card" style="padding:18px" onsubmit="return handleReg(event)">
+    <div class="two-col">
+      <div>
+        <div class="field"><label>Brokerage</label><input name="brokerage" required></div>
+        <div class="field"><label>Agent Name</label><input name="agent" required></div>
+        <div class="field"><label>License #</label><input name="license" required></div>
+        <div class="field"><label>Email</label><input type="email" name="email" required></div>
+        <div class="field"><label>Phone</label><input type="tel" name="phone" required></div>
+      </div>
+      <div>
+        <div class="field"><label>Buyer Full Name(s)</label><textarea name="buyers" rows="2" required></textarea></div>
+        <div class="field"><label>Buyer Contact (email/phone)</label><input name="buyer_contact" required></div>
+        <div class="field"><label>Financing</label>
+          <select name="financing" required>
+            <option value="Conventional">Conventional</option>
+            <option value="VA">VA</option>
+            <option value="Cash">Cash</option>
+            <option value="FHA">FHA</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Upload Pre‑Approval / POF (PDF)</label><input type="file" name="doc" accept="application/pdf" required></div>
+        <div class="field"><label>Desired Showing Window</label><input name="window" placeholder="e.g., Sat 12–2 or Weekday after 5pm" required></div>
+        <label class="gate-check"><input type="checkbox" name="consent" required> <span>I acknowledge no public advertising; private use only.</span></label>
+      </div>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <button class="callout" type="submit">Generate Registration ID</button>
+      <span id="regResult" class="muted"></span>
+    </div>
+  </form>
+</section>
+
+<!-- Broker: Offer Instructions -->
+<section id="offer" class="wrap">
+  <div class="section-head"><h2>Offer Instructions</h2><div class="kicker">Simple, clean, and fast</div></div>
+  <div class="card" style="padding:18px">
+    <ul class="bullets">
+      <li><strong>Preferred close:</strong> 21–30 days</li>
+      <li><strong>Inspection:</strong> 5 days</li>
+      <li><strong>Appraisal:</strong> Gap language encouraged</li>
+      <li><strong>Include:</strong> Inclusions/Exclusions, HOA docs acknowledgement, EMD guidelines</li>
+      <li><strong>Submit to:</strong> <a href="mailto:mark@aiforcetraining.com">mark@aiforcetraining.com</a> (CC backup if needed)</li>
+      <li><em>Optional:</em> Seller will consider a 2‑1 buydown or limited HOA credit with strong price/terms.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" class="wrap">
     <div class="section-head"><h2>Private Showing</h2><div class="kicker">By appointment only · qualified buyers</div></div>
     <div class="cta-panel">
       <div class="cta-box">
@@ -436,10 +597,11 @@
   </section>
 
   <footer>
-    <div class="wrap">
-      <p>© <span id="yr"></span> 2600 Milford Ln · Alpharetta, GA 30009 · Equal Housing Opportunity</p>
-    </div>
-  </footer>
+  <div class="wrap">
+    <p>Off‑MLS, private invitation. Do not publicly advertise or syndicate. Use with registered buyers only. Parties agree to comply with Georgia law, BRRETA, GREC rules, and fair‑housing laws. Not legal advice.</p>
+    <p style="margin-top:6px">© <span id="yr"></span> 2600 Milford Ln · Alpharetta, GA 30009 · Equal Housing Opportunity</p>
+  </div>
+</footer>
 
   <!-- Lightbox Modal -->
   <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
@@ -534,6 +696,60 @@
     apply(saved);
     if(el){ el.value=saved; el.addEventListener('change', e=> apply(e.target.value)); }
   })();
+</script>
+<script>
+  // ===== Broker Gate Logic =====
+  const gate = document.getElementById('gate');
+  const boxes = ['g1','g2','g3'].map(id=>document.getElementById(id));
+  const enterBtn = document.getElementById('enterBtn');
+  function gateReady(){ enterBtn.disabled = !boxes.every(b=>b && b.checked); }
+  boxes.forEach(b=> b && b.addEventListener('change', gateReady));
+  function openGate(){ gate.style.display='flex'; document.documentElement.style.overflow='hidden'; }
+  function closeGate(){ gate.style.display='none'; document.documentElement.style.overflow=''; localStorage.setItem('brokerGateAccepted','1'); }
+  if(localStorage.getItem('brokerGateAccepted')==='1'){ closeGate(); }
+  else { openGate(); }
+  enterBtn && enterBtn.addEventListener('click', closeGate);
+
+  // ===== Registration Logic =====
+  function handleReg(e){
+    e.preventDefault();
+    const f = e.target;
+    const data = Object.fromEntries(new FormData(f).entries());
+    const id = 'RG-' + Math.random().toString(36).slice(2,8).toUpperCase();
+    const list = JSON.parse(localStorage.getItem('brokerRegIDs')||'[]');
+    list.push(id); localStorage.setItem('brokerRegIDs', JSON.stringify(list));
+    const summary = `Brokerage: ${data.brokerage}
+Agent: ${data.agent} (Lic ${data.license})
+Broker Email: ${data.email} | Phone: ${data.phone}
+Buyer(s): ${data.buyers}
+Buyer Contact: ${data.buyer_contact}
+Financing: ${data.financing}
+Window: ${data.window}`;
+    const mail = `mailto:mark@aiforcetraining.com?subject=${encodeURIComponent('Buyer Registration — 2600 Milford Ln — ' + id)}&body=${encodeURIComponent(summary + '
+
+(Attach pre-approval/POF PDF to this email if not uploaded through your system.)')}`;
+    document.getElementById('regResult').innerHTML = `Registration ID: <strong>${id}</strong> · <a href="${mail}">Email confirmation</a>`;
+    const sched = document.getElementById('schedId'); if(sched){ sched.value = id; }
+    window.location.hash = '#scheduler';
+    return false;
+  }
+  window.handleReg = handleReg;
+
+  // ===== Scheduler Unlock =====
+  function checkSched(){
+    const id = (document.getElementById('schedId').value||'').trim().toUpperCase();
+    const list = JSON.parse(localStorage.getItem('brokerRegIDs')||'[]');
+    const msg = document.getElementById('schedMsg');
+    const wrap = document.getElementById('schedWrap');
+    if(list.includes(id)){
+      msg.textContent = '✅ Verified. Scheduler unlocked.';
+      wrap.style.display = 'block';
+    } else {
+      msg.textContent = 'Enter a valid Registration ID (generate below).';
+      wrap.style.display = 'none';
+    }
+  }
+  window.checkSched = checkSched;
 </script>
 </body>
 </html>
