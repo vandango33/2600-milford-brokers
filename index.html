@@ -13,7 +13,7 @@
   <meta property="og:title" content="2600 Milford Ln · Gated Alpharetta Townhome" />
   <meta property="og:description" content="Rare Lafayette floor plan · walk to Downtown Alpharetta & Avalon · 3 bed · 3.5 bath · 2,400 SF · finished terrace level · new AC units · resort amenities." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/vandango33/tmp-img/main/front_exterior.jpg" />
+  <meta property="og:image" content="00000_1.jpg" />
   <meta property="og:url" content="https://example.com/2600-milford-ln" />
 
   <style>
@@ -74,7 +74,7 @@
   .hero{position:relative;isolation:isolate}
   .hero-media{position:absolute;inset:0;z-index:-1;background:
     linear-gradient(180deg,rgba(2,6,23,.55),rgba(2,6,23,.40)),
-    url('https://raw.githubusercontent.com/vandango33/tmp-img/main/front_exterior.jpg') center/cover no-repeat;}
+    url('00000_1.jpg') center/cover no-repeat;}
   .hero-inner{padding:96px 0 40px}
   .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:flex-start}
   .eyebrow{letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;font-size:.82rem}
@@ -158,16 +158,15 @@
   /* Theme switcher inline style */
   #themeSelect{appearance:none;background:var(--button-bg);border:1px solid var(--button-border);border-radius:999px;padding:8px 12px;font-weight:600;color:var(--ink)}
 
-  /* ===== Broker Gate Overlay ===== */
-  .gate-overlay{position:fixed;inset:0;z-index:100;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.65)),url('https://raw.githubusercontent.com/vandango33/tmp-img/main/front_exterior.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;padding:24px}
-  .gate-card{max-width:820px;width:100%;background:var(--card);border:1px solid var(--card-border);border-radius:22px;box-shadow:var(--shadow);padding:28px}
-  .gate-card h1{font-family:"Playfair Display",serif;margin:0 0 10px}
-  .gate-check{display:flex;gap:12px;align-items:flex-start;margin:12px 0;color:var(--ink)}
-  .gate-check input{margin-top:3px}
-  .gate-actions{margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-  .btn{display:inline-block;background:linear-gradient(90deg,var(--cta-1),var(--cta-2));color:var(--cta-ink);border:0;border-radius:999px;padding:12px 18px;font-weight:800;cursor:pointer}
-  .btn[disabled]{opacity:.5;cursor:not-allowed}
-  .btn-outline{background:transparent;border:1px solid var(--button-border);color:var(--ink)}
+  /* ===== Announcement Popup ===== */
+  .announcement-popup{position:fixed;inset:0;z-index:100;display:none;align-items:flex-start;justify-content:center;padding:24px;pointer-events:none}
+  .announcement-popup.visible{display:flex}
+  .announcement-card{max-width:480px;width:100%;margin-top:96px;background:var(--card);border:1px solid var(--card-border);border-radius:18px;box-shadow:var(--shadow);padding:24px;pointer-events:auto;position:relative}
+  .announcement-title{font-family:"Playfair Display",serif;font-size:1.35rem;margin:0 0 8px}
+  .announcement-close{position:absolute;top:12px;right:12px;background:var(--button-bg);border:1px solid var(--button-border);border-radius:999px;padding:6px 10px;font-weight:700;cursor:pointer;color:var(--ink)}
+  .announcement-bonus{margin:8px 0 0;font-weight:600;color:var(--accent)}
+  .agreement-check{display:flex;gap:12px;align-items:flex-start;margin:12px 0;color:var(--ink)}
+  .agreement-check input{margin-top:3px}
 
   /* ===== New Broker Sections ===== */
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -213,18 +212,12 @@
 </nav>
     </div>
   </header>
-<!-- Broker Gate -->
-<div id="gate" class="gate-overlay" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
-  <div class="gate-card">
-    <h1 id="gateTitle">Private Broker Invitation — 2600 Milford Ln (Gated Downtown Alpharetta)</h1>
-    <p class="muted">Please review and accept to access the private offering.</p>
-    <label class="gate-check"><input type="checkbox" id="g1"> <span>I will not publicly market or post to MLS/portals/social without Seller’s written consent.</span></label>
-    <label class="gate-check"><input type="checkbox" id="g2"> <span>I will pre-register buyers before showings (name + contact + pre-approval/POF).</span></label>
-    <label class="gate-check"><input type="checkbox" id="g3"> <span>I understand this is a non-exclusive/open opportunity.</span></label>
-    <div class="gate-actions">
-      <button id="enterBtn" class="btn" disabled>Enter Private Offering</button>
-      <button class="btn btn-outline" onclick="location.hash='#register'">Register Buyer</button>
-    </div>
+<!-- Announcement -->
+<div id="announcement" class="announcement-popup" role="status" aria-live="polite">
+  <div class="announcement-card">
+    <button type="button" class="announcement-close" data-close-announcement aria-label="Close announcement">✕</button>
+    <p class="announcement-title">3% commission available to Buyer's Agents</p>
+    <p id="announcementBonus" class="announcement-bonus" hidden>Buyers closing with cash by or before October 9th receive a $20,000 incentive</p>
   </div>
 </div>
 
@@ -274,37 +267,37 @@
     <div class="grid">
       <!-- 12-col masonry-ish grid using spans -->
       <figure class="card" style="grid-column:span 7">
-        <div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/living_room1.jpg" alt="Spacious living room with hardwood floors and fireplace" loading="lazy"><figcaption class="label">Living Room</figcaption></div>
+        <div class="img"><img data-large src="00001_2.jpg" alt="Property photo 1" loading="lazy"><figcaption class="label">Property photo</figcaption></div>
       </figure>
       <figure class="card" style="grid-column:span 5">
-        <div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/kitchen_island_view.jpg" alt="Chef’s kitchen with island, stainless appliances, and wine cooler" loading="lazy"><figcaption class="label">Chef’s Kitchen</figcaption></div>
+        <div class="img"><img data-large src="00002_3.jpg" alt="Property photo 2" loading="lazy"><figcaption class="label">Property photo</figcaption></div>
       </figure>
       <figure class="card" style="grid-column:span 5">
-        <div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/entry_door_interior.jpg" alt="Bright foyer and hardwood stair" loading="lazy"><figcaption class="label">Elegant Foyer</figcaption></div>
+        <div class="img"><img data-large src="00003_4.jpg" alt="Property photo 3" loading="lazy"><figcaption class="label">Property photo</figcaption></div>
       </figure>
       <figure class="card" style="grid-column:span 7">
-        <div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/living_room_fireplace.jpg" alt="Cozy fireplace with built-ins" loading="lazy"><figcaption class="label">Fireplace</figcaption></div>
+        <div class="img"><img data-large src="00004_5.jpg" alt="Property photo 4" loading="lazy"><figcaption class="label">Property photo</figcaption></div>
       </figure>
       <figure class="card" style="grid-column:span 7">
-        <div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/primary_bedroom1.jpg" alt="Vaulted primary suite" loading="lazy"><figcaption class="label">Vaulted Primary Suite</figcaption></div>
+        <div class="img"><img data-large src="00005_6.jpg" alt="Property photo 5" loading="lazy"><figcaption class="label">Property photo</figcaption></div>
       </figure>
       <figure class="card" style="grid-column:span 5">
-        <div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/dining_room_round_table.jpg" alt="Dining area" loading="lazy"><figcaption class="label">Dining</figcaption></div>
+        <div class="img"><img data-large src="00006_7.jpg" alt="Property photo 6" loading="lazy"><figcaption class="label">Property photo</figcaption></div>
       </figure>
       <figure class="card" style="grid-column:span 6">
-        <div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/office_murphy_bed1.jpg" alt="Terrace-level office or guest suite with Murphy bed" loading="lazy"><figcaption class="label">Office / Guest</figcaption></div>
+        <div class="img"><img data-large src="00007_8.jpg" alt="Property photo 7" loading="lazy"><figcaption class="label">Property photo</figcaption></div>
       </figure>
       <figure class="card" style="grid-column:span 6">
-        <div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/deck_patio_seating.jpg" alt="Private deck with seating" loading="lazy"><figcaption class="label">Private Deck</figcaption></div>
+        <div class="img"><img data-large src="00008_9.jpg" alt="Property photo 8" loading="lazy"><figcaption class="label">Property photo</figcaption></div>
       </figure>
       <figure class="card" style="grid-column:span 6">
-        <div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/child_bedroom1.jpg" alt="Secondary bedroom" loading="lazy"><figcaption class="label">Secondary Bedroom</figcaption></div>
+        <div class="img"><img data-large src="00009_10.jpg" alt="Property photo 9" loading="lazy"><figcaption class="label">Property photo</figcaption></div>
       </figure>
       <figure class="card" style="grid-column:span 6">
-        <div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/kitchen_cabinets.jpg" alt="Kitchen details and stained cabinetry" loading="lazy"><figcaption class="label">Kitchen Details</figcaption></div>
+        <div class="img"><img data-large src="00010_11.jpg" alt="Property photo 10" loading="lazy"><figcaption class="label">Property photo</figcaption></div>
       </figure>
       <figure class="card" style="grid-column:span 12">
-        <div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/foyer_stairs.jpg" alt="Foyer with hardwood stairs" loading="lazy"><figcaption class="label">Foyer & Stairs</figcaption></div>
+        <div class="img"><img data-large src="00011_12.jpg" alt="Property photo 11" loading="lazy"><figcaption class="label">Property photo</figcaption></div>
       </figure>
     </div>
   </section>
@@ -390,10 +383,10 @@
       <div class="kicker">Resort‑style perks a short stroll away</div>
     </div>
     <div class="amen">
-      <figure class="card"><div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/community_pool.jpg" alt="Community pool" loading="lazy"><figcaption class="label">Resort‑Style Pool</figcaption></div></figure>
-      <figure class="card"><div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/tennis_court.jpg" alt="Tennis courts" loading="lazy"><figcaption class="label">Tennis Courts</figcaption></div></figure>
-      <figure class="card"><div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/fitness_center.jpg" alt="Fitness facility" loading="lazy"><figcaption class="label">Fitness Facility</figcaption></div></figure>
-      <figure class="card"><div class="img"><img data-large src="https://raw.githubusercontent.com/vandango33/tmp-img/main/walking_trail_entrance.jpg" alt="Nature trail entrance" loading="lazy"><figcaption class="label">Nature Trail / Alpha Loop Gate</figcaption></div></figure>
+      <figure class="card"><div class="img"><img data-large src="00012_13.jpg" alt="Property photo 12" loading="lazy"><figcaption class="label">Property photo</figcaption></div></figure>
+      <figure class="card"><div class="img"><img data-large src="00013_14.jpg" alt="Property photo 13" loading="lazy"><figcaption class="label">Property photo</figcaption></div></figure>
+      <figure class="card"><div class="img"><img data-large src="00014_15.jpg" alt="Property photo 14" loading="lazy"><figcaption class="label">Property photo</figcaption></div></figure>
+      <figure class="card"><div class="img"><img data-large src="00015_16.jpg" alt="Property photo 15" loading="lazy"><figcaption class="label">Property photo</figcaption></div></figure>
     </div>
   </section>
 
@@ -546,7 +539,7 @@
         </div>
         <div class="field"><label>Upload Pre‑Approval / POF (PDF)</label><input type="file" name="doc" accept="application/pdf" required></div>
         <div class="field"><label>Desired Showing Window</label><input name="window" placeholder="e.g., Sat 12–2 or Weekday after 5pm" required></div>
-        <label class="gate-check"><input type="checkbox" name="consent" required> <span>I acknowledge no public advertising; private use only.</span></label>
+        <label class="agreement-check"><input type="checkbox" name="consent" required> <span>I acknowledge no public advertising; private use only.</span></label>
       </div>
     </div>
     <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
@@ -698,17 +691,26 @@
   })();
 </script>
 <script>
-  // ===== Broker Gate Logic =====
-  const gate = document.getElementById('gate');
-  const boxes = ['g1','g2','g3'].map(id=>document.getElementById(id));
-  const enterBtn = document.getElementById('enterBtn');
-  function gateReady(){ enterBtn.disabled = !boxes.every(b=>b && b.checked); }
-  boxes.forEach(b=> b && b.addEventListener('change', gateReady));
-  function openGate(){ gate.style.display='flex'; document.documentElement.style.overflow='hidden'; }
-  function closeGate(){ gate.style.display='none'; document.documentElement.style.overflow=''; localStorage.setItem('brokerGateAccepted','1'); }
-  if(localStorage.getItem('brokerGateAccepted')==='1'){ closeGate(); }
-  else { openGate(); }
-  enterBtn && enterBtn.addEventListener('click', closeGate);
+  // ===== Announcement Popup =====
+  (function(){
+    const popup = document.getElementById('announcement');
+    if(!popup) return;
+    const closeBtn = popup.querySelector('[data-close-announcement]');
+    const bonus = document.getElementById('announcementBonus');
+    const storageKey = 'announcementDismissed';
+    const now = new Date();
+    const cutoff = new Date(now.getFullYear(), 9, 9, 23, 59, 59);
+    if(now <= cutoff && bonus){ bonus.hidden = false; }
+    const removePopup = ()=>{
+      popup.remove();
+      try{ localStorage.setItem(storageKey,'1'); }catch(e){}
+    };
+    try{
+      if(localStorage.getItem(storageKey)==='1'){ removePopup(); return; }
+    }catch(e){}
+    popup.classList.add('visible');
+    closeBtn && closeBtn.addEventListener('click', removePopup);
+  })();
 
   // ===== Registration Logic =====
   function handleReg(e){
