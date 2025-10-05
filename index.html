@@ -421,60 +421,6 @@
   <p class="muted" style="margin-top:10px">Tip: host assets in a private folder with filenames mapped to rooms; watermark assets for broker‑only use.</p>
 </section>
 
-<!-- Broker: Scheduler (requires Registration ID) -->
-<section id="scheduler" class="wrap">
-  <div class="section-head"><h2>Showing Scheduler</h2><div class="kicker">Enter a Registration ID to unlock scheduling</div></div>
-  <div class="card" style="padding:18px">
-    <div class="two-col">
-      <div>
-        <div class="field"><label>Registration ID</label><input id="schedId" placeholder="e.g., RG-ABC123"/></div>
-        <div style="margin-top:12px;display:flex;gap:10px;align-items:center"><button class="callout" onclick="checkSched()">Unlock Scheduler</button><span id="schedMsg" class="muted"></span></div>
-        <p class="muted" style="margin-top:12px">Broker‑only preview windows (example): Sat/Sun 12–2. Confirmed slots will be emailed after verification.</p>
-      </div>
-      <div id="schedWrap" class="card" style="padding:0;display:none">
-        <!-- Replace this Calendly link with your actual URL -->
-        <iframe id="calFrame" title="Showing Scheduler" width="100%" height="520" style="border:0" loading="lazy" allowfullscreen src="https://calendly.com/your-calendly-username/private-showing"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Broker: Buyer Registration Form -->
-<section id="register" class="wrap">
-  <div class="section-head"><h2>Buyer Registration</h2><div class="kicker">Required before first showing</div></div>
-  <form id="regForm" class="card" style="padding:18px" onsubmit="return handleReg(event)">
-    <div class="two-col">
-      <div>
-        <div class="field"><label>Brokerage</label><input name="brokerage" required></div>
-        <div class="field"><label>Agent Name</label><input name="agent" required></div>
-        <div class="field"><label>License #</label><input name="license" required></div>
-        <div class="field"><label>Email</label><input type="email" name="email" required></div>
-        <div class="field"><label>Phone</label><input type="tel" name="phone" required></div>
-      </div>
-      <div>
-        <div class="field"><label>Buyer Full Name(s)</label><textarea name="buyers" rows="2" required></textarea></div>
-        <div class="field"><label>Buyer Contact (email/phone)</label><input name="buyer_contact" required></div>
-        <div class="field"><label>Financing</label>
-          <select name="financing" required>
-            <option value="Conventional">Conventional</option>
-            <option value="VA">VA</option>
-            <option value="Cash">Cash</option>
-            <option value="FHA">FHA</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div class="field"><label>Upload Pre‑Approval / POF (PDF)</label><input type="file" name="doc" accept="application/pdf" required></div>
-        <div class="field"><label>Desired Showing Window</label><input name="window" placeholder="e.g., Sat 12–2 or Weekday after 5pm" required></div>
-        <label class="agreement-check"><input type="checkbox" name="consent" required> <span>I acknowledge no public advertising; private use only.</span></label>
-      </div>
-    </div>
-    <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-      <button class="callout" type="submit">Generate Registration ID</button>
-      <span id="regResult" class="muted"></span>
-    </div>
-  </form>
-</section>
-
 <!-- Broker: Offer Instructions -->
 <section id="offer" class="wrap">
   <div class="section-head"><h2>Offer Instructions</h2><div class="kicker">Simple, clean, and fast</div></div>
@@ -483,9 +429,7 @@
       <li><strong>Preferred close:</strong> 21–30 days</li>
       <li><strong>Inspection:</strong> 5 days</li>
       <li><strong>Appraisal:</strong> Gap language encouraged</li>
-      <li><strong>Include:</strong> Inclusions/Exclusions, HOA docs acknowledgement, EMD guidelines</li>
-      <li><strong>Submit to:</strong> <a href="mailto:mark@aiforcetraining.com">mark@aiforcetraining.com</a> (CC backup if needed)</li>
-      <li><em>Optional:</em> Seller will consider a 2‑1 buydown or limited HOA credit with strong price/terms.</li>
+      <li id="closeFastDiscount" style="display:none"><strong>Close Fast Discount:</strong> Full closing by October 9th for a $25,000 discount.</li>
     </ul>
   </div>
 </section>
@@ -494,11 +438,11 @@
     <div class="section-head"><h2>Listing Support</h2><div class="kicker">Reach out for comps, disclosures, or incentive details</div></div>
     <div class="cta-panel">
       <div class="cta-box">
-        <h3 style="margin:0 0 6px">Text or Call for fastest response</h3>
-        <p style="margin:0 0 10px">We’re available to support your client conversations with comps, HOA specifics, and incentive guidance. Coordinate showings through Zillow or your preferred tools.</p>
+        <h3 style="margin:0 0 6px">Text or Call the owner for fastest response</h3>
+        <p style="margin:0 0 10px">I’m Mark, the homeowner, and happy to answer questions directly about the property, HOA details, and incentives. For brokerage coordination, please reference the Seller’s Agent listing on Zillow to view their contact information and align with their showing guidance.</p>
         <p style="display:flex;gap:12px;flex-wrap:wrap;margin:0">
-          <a class="pill" href="sms:+14048498677?&body=Hi%20—%20I%27d%20like%20more%20information%20for%20my%20buyer%20on%202600%20Milford%20Ln">Text (404) 849‑8677</a>
-          <a class="pill" href="tel:+14048498677">Call for Details</a>
+          <a class="pill" href="sms:+14048498677?&body=Hi%20—%20I%27d%20like%20more%20information%20for%20my%20buyer%20on%202600%20Milford%20Ln">Text Mark (Owner) (404) 849‑8677</a>
+          <a class="pill" href="tel:+14048498677">Call the Owner</a>
           <a class="pill" href="mailto:mark@aiforcetraining.com?subject=2600%20Milford%20Ln%20Inquiry&body=Hi%2C%20I%27d%20like%20more%20information%20for%20my%20buyer%20on%202600%20Milford%20Ln.%20My%20name%20is%20___%20and%20my%20questions%20are%20___">Email</a>
         </p>
       </div>
@@ -621,46 +565,18 @@
     closeBtn && closeBtn.addEventListener('click', removePopup);
   })();
 
-  // ===== Registration Logic =====
-  function handleReg(e){
-    e.preventDefault();
-    const f = e.target;
-    const data = Object.fromEntries(new FormData(f).entries());
-    const id = 'RG-' + Math.random().toString(36).slice(2,8).toUpperCase();
-    const list = JSON.parse(localStorage.getItem('brokerRegIDs')||'[]');
-    list.push(id); localStorage.setItem('brokerRegIDs', JSON.stringify(list));
-    const summary = `Brokerage: ${data.brokerage}
-Agent: ${data.agent} (Lic ${data.license})
-Broker Email: ${data.email} | Phone: ${data.phone}
-Buyer(s): ${data.buyers}
-Buyer Contact: ${data.buyer_contact}
-Financing: ${data.financing}
-Window: ${data.window}`;
-    const mail = `mailto:mark@aiforcetraining.com?subject=${encodeURIComponent('Buyer Registration — 2600 Milford Ln — ' + id)}&body=${encodeURIComponent(summary + '
-
-(Attach pre-approval/POF PDF to this email if not uploaded through your system.)')}`;
-    document.getElementById('regResult').innerHTML = `Registration ID: <strong>${id}</strong> · <a href="${mail}">Email confirmation</a>`;
-    const sched = document.getElementById('schedId'); if(sched){ sched.value = id; }
-    window.location.hash = '#scheduler';
-    return false;
-  }
-  window.handleReg = handleReg;
-
-  // ===== Scheduler Unlock =====
-  function checkSched(){
-    const id = (document.getElementById('schedId').value||'').trim().toUpperCase();
-    const list = JSON.parse(localStorage.getItem('brokerRegIDs')||'[]');
-    const msg = document.getElementById('schedMsg');
-    const wrap = document.getElementById('schedWrap');
-    if(list.includes(id)){
-      msg.textContent = '✅ Verified. Scheduler unlocked.';
-      wrap.style.display = 'block';
-    } else {
-      msg.textContent = 'Enter a valid Registration ID (generate below).';
-      wrap.style.display = 'none';
+</script>
+<script>
+  // Close Fast Discount visibility
+  (function(){
+    const discount = document.getElementById('closeFastDiscount');
+    if(!discount) return;
+    const today = new Date();
+    const cutoff = new Date(today.getFullYear(), 9, 10);
+    if(today < cutoff){
+      discount.style.display = 'list-item';
     }
-  }
-  window.checkSched = checkSched;
+  })();
 </script>
 </body>
 </html>
