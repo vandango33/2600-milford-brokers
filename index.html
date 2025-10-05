@@ -91,10 +91,6 @@
   .quick-specs li{padding:8px 0;border-bottom:1px dashed var(--hair)}
   .quick-specs li:last-child{border-bottom:0}
 
-  /* Sticky mobile CTA */
-  .sticky-cta{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:40;background:linear-gradient(90deg,var(--cta-1),var(--cta-2));color:var(--cta-ink);border-radius:999px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;padding:12px 18px}
-  .sticky-cta a{color:var(--cta-ink);font-weight:800}
-
   /* Sections */
   section{padding:64px 0}
   .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}
@@ -129,22 +125,14 @@
   .list li{padding:10px 0;border-bottom:1px dashed var(--hair)}
   .pill{display:inline-block;background:rgba(0,0,0,.03);padding:6px 10px;border-radius:999px;border:1px solid var(--hair);margin:4px 6px 0 0}
 
-  /* Amenities */
-  .amen{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  .amen .card{display:flex;flex-direction:column}
-  .amen .img{aspect-ratio:16/10}
-
   /* Location */
   .mapwrap{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
   .map{border-radius:var(--radius);overflow:hidden;min-height:360px}
   .badge-row{display:flex;flex-wrap:wrap;gap:8px}
 
-  /* Calculator */
-  .calc{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .field{display:flex;flex-direction:column;gap:6px}
   .field input, .field select, .field textarea{background:var(--input-bg);border:1px solid var(--button-border);color:var(--ink);padding:12px 12px;border-radius:10px}
   .muted{color:var(--muted)}
-  .result{font-size:1.8rem;font-weight:800}
 
   /* Contact */
   .cta-panel{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center}
@@ -175,9 +163,7 @@
 
   @media (max-width:1024px){
     .highlights{grid-template-columns:1fr 1fr}
-    .amen{grid-template-columns:1fr 1fr}
     .mapwrap{grid-template-columns:1fr}
-    .calc{grid-template-columns:1fr}
     .cta-panel{grid-template-columns:1fr}
     .details .col{grid-column:span 12}
     .two-col{grid-template-columns:1fr}
@@ -197,19 +183,16 @@
         <strong>2600 Milford Ln · Alpharetta</strong>
       </div>
       <nav style="display:flex;gap:16px;align-items:center">
-  <a href="#gallery">Photos</a>
-  <a href="#opportunity">Opportunity</a>
-  <a href="#assets">Asset Kit</a>
-  <a href="#scheduler">Scheduler</a>
-  <a href="#register">Register Buyer</a>
-  <a href="#offer">Offer Steps</a>
-  <select id="themeSelect" aria-label="Color theme">
-    <option value="theme-light">Light</option>
-    <option value="theme-warm">Warm</option>
-    <option value="theme-slate">Slate</option>
-  </select>
-  <a href="#register" class="cta">Enter / Register</a>
-</nav>
+        <a href="#gallery">Photos</a>
+        <a href="#opportunity">Agent Snapshot</a>
+        <a href="#offer">Offer Steps</a>
+        <select id="themeSelect" aria-label="Color theme">
+          <option value="theme-light">Light</option>
+          <option value="theme-warm">Warm</option>
+          <option value="theme-slate">Slate</option>
+        </select>
+        <a href="https://www.zillow.com/homedetails/2600-Milford-Ln-Alpharetta-GA-30009/65473091_zpid/" target="_blank" rel="noopener" class="cta">View on Zillow</a>
+      </nav>
     </div>
   </header>
 <!-- Announcement -->
@@ -226,10 +209,10 @@
   <div class="wrap hero-inner">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">Broker Access · Off‑MLS</div>
+        <div class="eyebrow">Broker Access · Listed on Zillow</div>
         <h1 class="title">Private Broker Invitation — 2600 Milford Ln (Gated Downtown Alpharetta)</h1>
         <p class="sub">Direct private gate to the Alpha Loop with an easy walk to Downtown Alpharetta & Avalon. Rare Lafayette floor plan with finished terrace level and two brand‑new AC units. HOA covers exterior (paint, brick, roof, landscaping, reserves).</p>
-        <p class="micro">Off‑MLS, private offering for registered buyers through participating brokers.</p>
+        <p class="micro">Now published for agents on Zillow — <a href="https://www.zillow.com/homedetails/2600-Milford-Ln-Alpharetta-GA-30009/65473091_zpid/" target="_blank" rel="noopener">open the live listing</a> to share with clients.</p>
         <div class="facts">
           <span class="chip">3BR</span>
           <span class="chip">3.5BA</span>
@@ -250,12 +233,6 @@
     </div>
   </div>
 </section>
-
-  <div class="sticky-cta" aria-label="Quick broker actions">
-  <a href="#register" title="Register Buyer">Register Buyer</a>
-  <span>·</span>
-  <a href="#scheduler" title="Request Showing">Request Showing</a>
-</div>
 
   <!-- Gallery -->
   <section id="gallery" class="wrap" style="padding-top:48px">
@@ -376,20 +353,6 @@
     </div>
   </section>
 
-  <!-- Amenities -->
-  <section id="amenities" class="wrap">
-    <div class="section-head">
-      <h2>Community Amenities</h2>
-      <div class="kicker">Resort‑style perks a short stroll away</div>
-    </div>
-    <div class="amen">
-      <figure class="card"><div class="img"><img data-large src="00012_13.jpg" alt="Property photo 12" loading="lazy"><figcaption class="label">Property photo</figcaption></div></figure>
-      <figure class="card"><div class="img"><img data-large src="00013_14.jpg" alt="Property photo 13" loading="lazy"><figcaption class="label">Property photo</figcaption></div></figure>
-      <figure class="card"><div class="img"><img data-large src="00014_15.jpg" alt="Property photo 14" loading="lazy"><figcaption class="label">Property photo</figcaption></div></figure>
-      <figure class="card"><div class="img"><img data-large src="00015_16.jpg" alt="Property photo 15" loading="lazy"><figcaption class="label">Property photo</figcaption></div></figure>
-    </div>
-  </section>
-
   <!-- Location -->
   <section id="location" class="wrap">
     <div class="section-head">
@@ -418,64 +381,27 @@
     </div>
   </section>
 
-  <!-- Calculator -->
-  <section id="calculator" class="wrap">
-    <div class="section-head">
-      <h2>Monthly Payment Estimator</h2>
-      <div class="kicker">Adjust assumptions to compare scenarios & incentives</div>
-    </div>
-    <div class="card" style="padding:18px">
-      <div class="calc">
-        <div>
-          <div class="field"><label>Target Price ($)</label><input id="price" type="number" inputmode="decimal" value="769000"></div>
-          <div class="field"><label>Down Payment (%)</label><input id="down" type="number" inputmode="decimal" value="20"></div>
-          <div class="field"><label>Interest Rate (APR %)</label><input id="rate" type="number" inputmode="decimal" value="5.7"></div>
-          <div class="field"><label>Term (years)</label><input id="term" type="number" inputmode="decimal" value="30"></div>
-        </div>
-        <div>
-          <div class="field"><label>Property Tax (annual $)</label><input id="tax" type="number" inputmode="decimal" value="4000"></div>
-          <div class="field"><label>Homeowners Insurance (monthly $)</label><input id="ins" type="number" inputmode="decimal" value="60"></div>
-          <div class="field"><label>HOA (monthly $)</label><input id="hoa" type="number" inputmode="decimal" value="665"></div>
-          <div class="field"><label class="muted">Investor Rent Estimate (for context)</label><input disabled value="$4,929 / mo"></div>
-        </div>
-      </div>
-      <hr style="border-color:rgba(255,255,255,.08);margin:16px 0"/>
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div>
-          <div class="muted">Estimated total monthly</div>
-          <div id="result" class="result">—</div>
-        </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button id="calcBtn" class="callout">Recalculate</button>
-          <button class="print">Save Estimate</button>
-        </div>
-      </div>
-      <p class="muted" style="margin-top:10px">Estimates are for illustration only and not a commitment to lend. Consult a lender for exact terms.</p>
-    </div>
-  </section>
-
   <!-- Contact -->
   <!-- Broker: Your Opportunity -->
 <section id="opportunity" class="wrap">
   <div class="section-head">
-    <h2>Your Opportunity (Non‑Exclusive / Open)</h2>
-    <div class="kicker">Fast facts brokers can share privately</div>
+    <h2>Agent Snapshot</h2>
+    <div class="kicker">Quick reference talking points for client updates</div>
   </div>
   <div class="card" style="padding:18px">
     <div class="two-col">
       <ul class="bullets">
-        <li><strong>Compensation:</strong> 3.0% to procuring‑cause broker at closing.</li>
-        <li><strong>Term:</strong> 30 days (renewable month‑to‑month).</li>
-        <li><strong>Scope:</strong> Private/direct‑to‑buyer outreach only (no public ads or MLS).</li>
-        <li><strong>Buyer Registration:</strong> Required before first showing (simple form below).</li>
-        <li><strong>Showings:</strong> By appointment; broker‑only preview windows available.</li>
-        <li><strong>Target price guidance:</strong> $745k–$759k (strong terms considered).</li>
+        <li><strong>Compensation:</strong> 3.0% to procuring broker at closing.</li>
+        <li><strong>Status:</strong> Listed publicly on Zillow with full media set.</li>
+        <li><strong>Location:</strong> Direct Alpha Loop gate between Downtown Alpharetta & Avalon.</li>
+        <li><strong>Plan:</strong> Lafayette layout with finished terrace level and two brand‑new AC units.</li>
+        <li><strong>HOA:</strong> $665/mo covering exterior paint, brick, roof, landscaping, and reserves.</li>
       </ul>
       <div>
-        <p style="margin-top:0">Use the actions below to move quickly:</p>
+        <p style="margin-top:0">Share the public listing with your buyers and coordinate showings using your preferred tools.</p>
         <p style="display:flex;gap:10px;flex-wrap:wrap">
-          <a class="callout" href="#register">Register Buyer</a>
-          <a class="print" href="#scheduler">Request Showing Window</a>
+          <a class="callout" href="https://www.zillow.com/homedetails/2600-Milford-Ln-Alpharetta-GA-30009/65473091_zpid/" target="_blank" rel="noopener">View on Zillow</a>
+          <a class="print" href="https://www.google.com/maps/dir/?api=1&destination=2600%20Milford%20Ln%2C%20Alpharetta%2C%20GA%2030009" target="_blank" rel="noopener">Get Directions</a>
         </p>
       </div>
     </div>
@@ -565,15 +491,15 @@
 </section>
 
 <section id="contact" class="wrap">
-    <div class="section-head"><h2>Private Showing</h2><div class="kicker">By appointment only · qualified buyers</div></div>
+    <div class="section-head"><h2>Listing Support</h2><div class="kicker">Reach out for comps, disclosures, or incentive details</div></div>
     <div class="cta-panel">
       <div class="cta-box">
         <h3 style="margin:0 0 6px">Text or Call for fastest response</h3>
-        <p style="margin:0 0 10px">We’ll coordinate a private tour and answer questions about comps, HOA, and incentives (e.g., 2‑1 buydown or prepaid HOA).</p>
+        <p style="margin:0 0 10px">We’re available to support your client conversations with comps, HOA specifics, and incentive guidance. Coordinate showings through Zillow or your preferred tools.</p>
         <p style="display:flex;gap:12px;flex-wrap:wrap;margin:0">
-          <a class="pill" href="sms:+14048498677?&body=Hi%20—%20I%27d%20like%20to%20tour%202600%20Milford%20Ln">Text (404) 849‑8677</a>
-          <a class="pill" href="tel:+14048498677">Call Now</a>
-          <a class="pill" href="mailto:mark@aiforcetraining.com?subject=2600%20Milford%20Ln%20Inquiry&body=Hi%2C%20I%27d%20like%20to%20request%20a%20showing%20for%202600%20Milford%20Ln.%20My%20name%20is%20___%20and%20my%20availability%20is%20___">Email</a>
+          <a class="pill" href="sms:+14048498677?&body=Hi%20—%20I%27d%20like%20more%20information%20for%20my%20buyer%20on%202600%20Milford%20Ln">Text (404) 849‑8677</a>
+          <a class="pill" href="tel:+14048498677">Call for Details</a>
+          <a class="pill" href="mailto:mark@aiforcetraining.com?subject=2600%20Milford%20Ln%20Inquiry&body=Hi%2C%20I%27d%20like%20more%20information%20for%20my%20buyer%20on%202600%20Milford%20Ln.%20My%20name%20is%20___%20and%20my%20questions%20are%20___">Email</a>
         </p>
       </div>
       <div class="card" style="padding:18px">
@@ -591,7 +517,7 @@
 
   <footer>
   <div class="wrap">
-    <p>Off‑MLS, private invitation. Do not publicly advertise or syndicate. Use with registered buyers only. Parties agree to comply with Georgia law, BRRETA, GREC rules, and fair‑housing laws. Not legal advice.</p>
+    <p>Agent resource page for 2600 Milford Ln. Reference the Zillow listing for live status and shareable materials. Parties agree to comply with Georgia law, BRRETA, GREC rules, and fair‑housing laws. Not legal advice.</p>
     <p style="margin-top:6px">© <span id="yr"></span> 2600 Milford Ln · Alpharetta, GA 30009 · Equal Housing Opportunity</p>
   </div>
 </footer>
@@ -636,7 +562,7 @@
       "availability": "https://schema.org/InStock",
       "priceCurrency": "USD",
       "price": "0",
-      "description": "Private showing. Inquire for pricing."
+      "description": "See Zillow listing for current pricing and showing instructions."
     }
   }
   </script>
@@ -661,24 +587,7 @@
     })();
     window.LB = LB;
 
-    // Calculator
-    function calc(){
-      const price = +document.getElementById('price').value || 0;
-      const downPct = (+document.getElementById('down').value || 0) / 100;
-      const rate = (+document.getElementById('rate').value || 0) / 100 / 12; // monthly
-      const termY = +document.getElementById('term').value || 30;
-      const n = termY * 12;
-      const taxY = +document.getElementById('tax').value || 0;
-      const insM = +document.getElementById('ins').value || 0;
-      const hoaM = +document.getElementById('hoa').value || 0;
-      const principal = Math.max(price - price*downPct, 0);
-      const mortgageM = rate > 0 ? (principal * rate * Math.pow(1+rate, n)) / (Math.pow(1+rate, n) - 1) : (principal / n);
-      const total = mortgageM + (taxY/12) + insM + hoaM;
-      document.getElementById('result').textContent = isFinite(total) ? total.toLocaleString(undefined,{style:'currency',currency:'USD'}) : '—';
-    }
-    document.getElementById('calcBtn').addEventListener('click', calc);
-    calc();
-  <\/script>
+  </script>
 <script>
   // Theme switcher
   (function(){
