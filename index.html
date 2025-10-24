@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Private Broker Invitation — 2600 Milford Ln (Gated Downtown Alpharetta)</title>
+  <title>Walkable Alpharetta Haven — 2600 Milford Ln (Gated Downtown Alpharetta)</title>
   <meta name="description" content="Rare Lafayette floor plan in a quiet, gated community with direct trail access to Downtown Alpharetta & the Alpha Loop. 3 bed • 3.5 bath • 2,400 SF • finished terrace level • two brand‑new AC units • pool, tennis, fitness, nature trail. HOA covers exterior."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -149,9 +149,6 @@
 
   footer{padding:48px 0;color:var(--muted);text-align:center}
 
-  /* Theme switcher inline style */
-  #themeSelect{appearance:none;background:var(--button-bg);border:1px solid var(--button-border);border-radius:999px;padding:8px 12px;font-weight:600;color:var(--ink)}
-
   /* ===== Announcement Popup ===== */
   .announcement-popup{position:fixed;inset:0;z-index:100;display:none;align-items:flex-start;justify-content:center;padding:24px;pointer-events:none}
   .announcement-popup.visible{display:flex}
@@ -181,7 +178,7 @@
   }
 </style>
 </head>
-<body class="theme-light">
+<body class="theme-warm">
   <header class="site-header">
     <div class="wrap nav">
       <div style="display:flex;align-items:center;gap:12px">
@@ -192,11 +189,6 @@
         <a href="#gallery">Photos</a>
         <a href="#opportunity">Agent Snapshot</a>
         <a href="#offer">Offer Steps</a>
-        <select id="themeSelect" aria-label="Color theme">
-          <option value="theme-light">Light</option>
-          <option value="theme-warm">Warm</option>
-          <option value="theme-slate">Slate</option>
-        </select>
         <a href="https://www.zillow.com/homedetails/2600-Milford-Ln-Alpharetta-GA-30009/65473091_zpid/" target="_blank" rel="noopener" class="cta">View on Zillow</a>
       </nav>
     </div>
@@ -216,7 +208,7 @@
     <div class="hero-grid">
       <div>
         <div class="eyebrow">Broker Access · Listed on Zillow</div>
-        <h1 class="title">Private Broker Invitation — 2600 Milford Ln (Gated Downtown Alpharetta)</h1>
+        <h1 class="title">Walkable Alpharetta Haven — 2600 Milford Ln (Gated Downtown Alpharetta)</h1>
         <p class="sub">Direct private gate to the Alpha Loop with an easy walk to Downtown Alpharetta & Avalon. Rare Lafayette floor plan with finished terrace level and two brand‑new AC units. HOA covers exterior (paint, brick, roof, landscaping, reserves).</p>
         <p class="micro">Now published for agents on Zillow — <a href="https://www.zillow.com/homedetails/2600-Milford-Ln-Alpharetta-GA-30009/65473091_zpid/" target="_blank" rel="noopener">open the live listing</a> to share with clients.</p>
         <div class="facts">
@@ -227,15 +219,15 @@
           <span class="chip alt">2‑car garage</span>
         </div>
       </div>
-      <aside class="quick-specs" style="color: black;">
-        <ul>
-          <li><strong>Specs:</strong> 3BR | 3.5BA | ~2,400 SF | Finished terrace level | 2-car garage</li>
-          <li><strong>Alpha Loop Gate:</strong> Walk to Downtown Alpharetta & Avalon</li>
-          <li><strong>Major Systems:</strong> Two brand-new AC units</li>
-          <li><strong>Community:</strong> Pool • Tennis • Fitness • Nature Trail</li>
-          <li><strong>HOA:</strong> $665/mo (exterior paint, brick, roof, landscape, reserves)</li>
-        </ul>
-      </aside>
+       <aside class="quick-specs" style="color: black;">
+      <ul>
+        <li><strong>Specs:</strong> 3BR | 3.5BA | ~2,400 SF | Finished terrace level | 2-car garage</li>
+        <li><strong>Alpha Loop Gate:</strong> Walk to Downtown Alpharetta & Avalon</li>
+        <li><strong>Major Systems:</strong> Two brand-new AC units</li>
+        <li><strong>Community:</strong> Pool • Tennis • Fitness • Nature Trail</li>
+        <li><strong>HOA:</strong> $665/mo (exterior paint, brick, roof, landscape, reserves)</li>
+      </ul>
+    </aside>
 
     </div>
   </div>
@@ -634,17 +626,6 @@
     window.LB = LB;
 
   </script>
-<script>
-  // Theme switcher
-  (function(){
-    const THEMES=['theme-light','theme-warm','theme-slate'];
-    const el=document.getElementById('themeSelect');
-    function apply(t){ document.body.classList.remove(...THEMES); document.body.classList.add(t); localStorage.setItem('theme',t); }
-    const saved = localStorage.getItem('theme') || 'theme-light';
-    apply(saved);
-    if(el){ el.value=saved; el.addEventListener('change', e=> apply(e.target.value)); }
-  })();
-</script>
 <script>
   // ===== Announcement Popup =====
   (function(){
